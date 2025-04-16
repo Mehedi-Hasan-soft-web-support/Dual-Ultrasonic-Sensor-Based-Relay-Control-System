@@ -2,6 +2,9 @@
 
 This Arduino project uses two ultrasonic sensors to control a relay module based on object detection. It can be used for automation tasks like triggering a device when someone approaches and turning it off when they leave from another direction.
 
+![image](https://github.com/user-attachments/assets/4a278a23-0ee5-444a-b0fc-4d8209622a64)
+
+
 ## 🛠️ Hardware Components
 
 - Arduino Uno (or compatible board)
