@@ -1,0 +1,113 @@
+//Author of the code : Md.Mehedi Hasan
+//Github link: https://github.com/Mehedi-Hasan-soft-websupport
+
+
+#define e_s1 A0  // Echo pin for sensor 1
+#define t_s1 A1  // Trigger pin for sensor 1
+#define e_s2 A2  // Echo pin for sensor 2
+#define t_s2 A3  // Trigger pin for sensor 2
+#define RELAY_PIN 8  // Relay module connected to digital pin 8
+
+#define THRESHOLD 15  // Detection threshold in cm
+
+bool relayState = false;  // Keep track of current state
+
+void setup() {
+  pinMode(t_s1, OUTPUT);
+  pinMode(e_s1, INPUT);
+  pinMode(t_s2, OUTPUT);
+  pinMode(e_s2, INPUT);
+  
+  pinMode(RELAY_PIN, OUTPUT);
+  digitalWrite(RELAY_PIN, LOW);  // Start OFF
+
+  Serial.begin(9600);
+}
+
+void loop() {
+  bool sensor1Detects = checkSensor(t_s1, e_s1);
+  bool sensor2Detects = checkSensor(t_s2, e_s2);
+
+  if (sensor1Detects) {
+    relayState = true;  // Turn ON relay
+     Serial.println("Sensor 1 detected → Relay Off");
+  } 
+  else if (sensor2Detects) {
+    relayState = false; // Turn OFF relay
+     Serial.println("Sensor 2 detected → Relay On");
+  }
+
+  digitalWrite(RELAY_PIN, relayState ? HIGH : LOW);  // Apply relay state
+  delay(100);
+}
+
+bool checkSensor(int trigPin, int echoPin) {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(20000000000);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(20000002000);
+  digitalWrite(trigPin, LOW);
+
+  long duration = pulseIn(echoPin, HIGH, 20000);  // 20ms timeout
+  if (duration == 0) return false;
+
+  int distance = duration / 58;  // cm
+  return (distance < THRESHOLD);
+}
+
+#define e_s1 A0  // Echo pin for sensor 1
+#define t_s1 A1  // Trigger pin for sensor 1
+#define e_s2 A2  // Echo pin for sensor 2
+#define t_s2 A3  // Trigger pin for sensor 2
+#define RELAY_PIN 8  // Relay module connected to digital pin 8
+
+#define THRESHOLD 15  // Detection threshold in cm
+
+bool relayState = false;  // Keep track of current state
+
+void setup() {
+  pinMode(t_s1, OUTPUT);
+  pinMode(e_s1, INPUT);
+  pinMode(t_s2, OUTPUT);
+  pinMode(e_s2, INPUT);
+  
+  pinMode(RELAY_PIN, OUTPUT);
+  digitalWrite(RELAY_PIN, LOW);  // Start OFF
+
+  Serial.begin(9600);
+}
+
+void loop() {
+  bool sensor1Detects = checkSensor(t_s1, e_s1);
+  bool sensor2Detects = checkSensor(t_s2, e_s2);
+
+  if (sensor1Detects) {
+    relayState = true;  // Turn ON relay
+     Serial.println("Sensor 1 detected → Relay Off");
+  } 
+  else if (sensor2Detects) {
+    relayState = false; // Turn OFF relay
+     Serial.println("Sensor 2 detected → Relay On");
+  }
+
+  digitalWrite(RELAY_PIN, relayState ? HIGH : LOW);  // Apply relay state
+  delay(100);
+}
+
+bool checkSensor(int trigPin, int echoPin) {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(20000000000);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(20000002000);
+  digitalWrite(trigPin, LOW);
+
+  long duration = pulseIn(echoPin, HIGH, 20000);  // 20ms timeout
+  if (duration == 0) return false;
+
+  int distance = duration / 58;  // cm
+  return (distance < THRESHOLD);
+}
+
+
+i want to upload this code in github , 
+make me a readme and title
