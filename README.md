@@ -1,7 +1,5 @@
 # Dual-Ultrasonic-Sensor-Based-Relay-Control-System
 
-# Dual Ultrasonic Sensor-Based Relay Control System
-
 This Arduino project uses two ultrasonic sensors to control a relay module based on object detection. It can be used for automation tasks like triggering a device when someone approaches and turning it off when they leave from another direction.
 
 ## 🛠️ Hardware Components
